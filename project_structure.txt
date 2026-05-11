@@ -1,0 +1,13 @@
+project/
+│
+├── app.py
+│
+├── ciphers/
+│   ├── vigenere.py
+│   ├── polibiusz.py
+│   └── transposition.py
+│
+├── templates/
+│   └── index.html
+│
+└── static/
