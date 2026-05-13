@@ -1,38 +1,58 @@
-import textwrap as tx
+import math as m
 
 # Kod odpowiadający za logikę szyfrowania i deszyfrowania metodą przestawieniową - skokową
 
+
+# Funkcja szyfrowania
+# klucz jest ilością kolumn, wedle której następuje podział wiadomości
 def encrypt(message, key):
 
-    message = message.lower()
-    message = message.replace(" ", "")
+    message = message.lower().replace(" ", "")
     message_length = len(message)
-    message_columns = ['' for x in range(key)]   
+    matrix_rows = m.ceil(message_length / key)
+    message_matrix = [['' for _ in range(key)] for _ in range(matrix_rows)]
+    message_letter_index = 0
 
-    for i in range(message_length):
-        message_columns[i % key] += message[i]
-    encrypted_message = ''.join(message_columns)
+    for i in range(matrix_rows):
+        for j in range(key):
+            if message_letter_index < message_length:
+                message_matrix[i][j] = message[message_letter_index]
+                message_letter_index += 1
+
+
+    encrypted_message = ''
+
+    for j in range(key):
+        for i in range(matrix_rows):
+            encrypted_message += message_matrix[i][j]
 
     return encrypted_message
 
-    
+# Funkcja deszyfrowania     
 def decrypt(message, key):
     
-    decrypted_message = ''
-    message = message.lower()
-    message = message.replace(" ", "")
+   
+    message = message.lower().replace(" ", "")
     message_length = len(message)
-    message_columns = [ x for x in tx.wrap(message, key)]
-    print(message_columns)
+    matrix_rows = m.ceil(message_length / key)
+    message_matrix = [['' for _ in range(key)] for _ in range(matrix_rows)]
+    message_letter_index = 0
+    decrypted_message = ''
 
-    for i in range(len(message_columns[0])):
-        for column in message_columns:
-            decrypted_message += column[i]
+    for j in range(key):
+        for i in range(matrix_rows):
+            if message_letter_index < message_length:
+                message_matrix[i][j] = message[message_letter_index]
+                message_letter_index += 1
 
-    decrypted_message = ''.join(decrypted_message)
+    for i in range(matrix_rows):
+        for j in range(key):
+            decrypted_message += message_matrix[i][j]
+                
     return decrypted_message
 
 
 # text1 = "żółta źółć"
-# print(encrypt(text1, 3))
-print(decrypt("żtóóałłźć", 3))
+# encrypted = encrypt(text1, 3)
+# print(f"Tekst zaszyfrowany: {encrypted}")
+# print(f"Tekst odszyfrowawny: {decrypt(encrypted, 3)}")
