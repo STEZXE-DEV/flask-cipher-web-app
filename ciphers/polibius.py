@@ -1,4 +1,4 @@
-from utility.util import normalize
+from .utility.util import normalize
 
 # Kod odpowiadający za logikę szyfrowania i deszyfrowania metodą Polibiusza
 
@@ -21,10 +21,11 @@ def encrypt(message, key):
     encrypted_message = ''
 
     for letter in message:
-        letter_position = position_dict[letter]
-        column = letter_position % 6 + 1
-        row = letter_position // 6 + 1
-        encrypted_message += str(row) + str(column) + ' '
+        if letter in alphabet:
+            letter_position = position_dict[letter]
+            column = letter_position % 6 + 1
+            row = letter_position // 6 + 1
+            encrypted_message += str(row) + str(column) + ' '
     
     return encrypted_message
 
@@ -47,9 +48,3 @@ def decrypt(message, key):
         decrypted_message += shifted_alphabet[letter_position]
 
     return decrypted_message
-
-# TO BE MOVED
-# alphabet = "abcdefghijklmnopqrstuvwxyz0123456789"
-# print(decrypt("12 11 31", 72))
-# print(encrypt("abgęą tralala 123", 1))
-# print(decrypt("66 11 16 14 66 41 35 66 25 66 25 66 53 54 55", 1))

@@ -1,5 +1,5 @@
 import math as m
-from utility.util import normalize
+from .utility.util import normalize
 
 # Kod odpowiadający za logikę szyfrowania i deszyfrowania metodą przestawieniową - skokową
 # Funkcja szyfrowania

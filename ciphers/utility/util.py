@@ -31,8 +31,9 @@ def cesar_encrypt(message, key):
     encrypted_message = ''
 
     for letter in message:
-        letter_position = (alphabet.index(letter) + key) % 26
-        encrypted_message += alphabet[letter_position]
+        if letter in alphabet:
+            letter_position = (alphabet.index(letter) + key) % 26
+            encrypted_message += alphabet[letter_position]
     
     return encrypted_message
 
