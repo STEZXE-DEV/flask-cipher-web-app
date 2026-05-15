@@ -6,7 +6,7 @@
 - [x] Implementacja encrypt
 - [x] Implementacja decrypt
 - [x] Obsługa polskich znaków
-- [ ] Testy edge case
+- [x] Testy logiki
 
 ### 1.2 Szyfr Polibiusza
 - [x] Implementacja encrypt
@@ -14,7 +14,7 @@
 - [x] Siatka 6x6
 - [x] Obsługa klucza
 - [x] Obsługa polskich znaków
-- [ ] Testy edge case
+- [x] Testy logiki
 
 ### 1.3 Szyfr Vigenère’a
 - [x] Implementacja encrypt
@@ -22,7 +22,7 @@
 - [x] Implementacja Cezara (pomocniczo)
 - [x] Obsługa klucza
 - [x] Obsługa polskich znaków
-- [ ] Testy edge case
+- [x] Testy logiki
 
 ---
 
@@ -36,15 +36,16 @@
 - [ ] Strona główna
 
 ### 2.3 Formularz użytkownika
-- [ ] pole tekstowe
-- [ ] wybór szyfru
-- [ ] pole klucza
-- [ ] przyciski szyfruj/deszyfruj
+- [ ] Pole tekstowe
+- [ ] Wybór szyfru
+- [ ] Pole klucza
+- [ ] Przyciski szyfruj/deszyfruj
 
 ### 2.4 Połączenie z algorytmami
-- [ ] integracja szyfrów z formularzem
-- [ ] wyświetlanie wyników
-- [ ] walidacja danych
+- [ ] Integracja szyfrów z formularzem
+- [ ] Wyświetlanie wyników
+- [ ] Walidacja danych
+- [ ] Testy edge case
 
 ---
 
