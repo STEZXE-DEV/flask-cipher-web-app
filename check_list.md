@@ -29,8 +29,7 @@
 ## 2. Aplikacja webowa we Flasku
 
 ### 2.1 Konfiguracja projektu Flask
-- [ ] Utworzenie projektu
-- [ ] Struktura projektu
+- [ ] Utworzenie struktury projektu
 
 ### 2.2 Strona główna aplikacji
 - [ ] Strona główna
