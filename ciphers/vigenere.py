@@ -2,7 +2,7 @@ from .utility.util import normalize, cesar_encrypt, cesar_decrypt
 
 # Kod odpowiadający za logikę szyfrowania i deszyfrowania metodą Vigener'a
 
-alphabet = "abcdefghijklmnopqrstuvwxyz"
+alphabet = "abcdefghijklmnopqrstuvwxyz0123456789"
 
 def encrypt(message, key):
     message =  normalize(message.lower().replace(" ", ""))
