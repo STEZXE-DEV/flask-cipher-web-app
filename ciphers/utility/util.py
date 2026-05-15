@@ -20,3 +20,33 @@ def normalize(text):
             normalized_text += i
 
     return normalized_text
+
+def cesar_encrypt(message, key):
+
+    message =  normalize(message.lower().replace(" ", ""))
+
+    key %= 26
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+    encrypted_message = ''
+
+    for letter in message:
+        letter_position = (alphabet.index(letter) + key) % 26
+        encrypted_message += alphabet[letter_position]
+    
+    return encrypted_message
+
+def cesar_decrypt(message, key):
+
+    message =  normalize(message.lower().replace(" ", ""))
+
+    key %= 26
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+    encrypted_message = ''
+
+    for letter in message:
+        letter_position = (alphabet.index(letter) - key) % 26
+        encrypted_message += alphabet[letter_position]
+    
+    return encrypted_message
