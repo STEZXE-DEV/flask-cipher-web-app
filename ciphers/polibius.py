@@ -7,7 +7,7 @@ alphabet = "abcdefghijklmnopqrstuvwxyz0123456789"
 
 def encrypt(message, key):
 
-
+    key %= 36
     shifted_alphabet = alphabet[key:] + alphabet[:key]
 
     # zamiana liter wiadomości na małe litery, usunięcie spacji i normalizacja polskich znaków diakrytycznych
@@ -17,7 +17,7 @@ def encrypt(message, key):
     
     for i, letter in enumerate(shifted_alphabet):
         position_dict[letter] = i
-        
+
     encrypted_message = ''
 
     for letter in message:
