@@ -32,19 +32,19 @@
 - [x] Utworzenie struktury projektu
 
 ### 2.2 Strona główna aplikacji
-- [ ] Strona główna
+- [x] Strona główna
 
 ### 2.3 Formularz użytkownika
-- [ ] Pole tekstowe
-- [ ] Wybór szyfru
-- [ ] Pole klucza
-- [ ] Przyciski szyfruj/deszyfruj
+- [x] Pole tekstowe
+- [x] Wybór szyfru
+- [x] Pole klucza
+- [x] Przyciski szyfruj/deszyfruj
 
 ### 2.4 Połączenie z algorytmami
 - [ ] Integracja szyfrów z formularzem
 - [ ] Wyświetlanie wyników
 - [ ] Walidacja danych
-- [ ] Testy edge case
+- [ ] Testy walidacji
 
 ---
 
