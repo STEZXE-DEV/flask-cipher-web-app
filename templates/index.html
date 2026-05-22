@@ -10,7 +10,7 @@
     <main>
     <form method="POST" action="/process">
 
-    <textarea name="text"></textarea required>
+    <textarea name="text" required></textarea>
 
     <select name="cipher" required>
         <option value="transposition">Transposition</option>
@@ -19,7 +19,7 @@
     </select>
 
     <input type="text" name="key" required>
-
+    <div class="mode-selection">
     <label>
         <input type="radio" name="mode" value="encrypt" checked>
         Szyfruj
@@ -29,8 +29,12 @@
         <input type="radio" name="mode" value="decrypt">
         Deszyfruj
     </label>
-    <button class="submit" type="submit">Wykonaj</button>
-    <button class="reset" type="reset">Wyczyść</button>
+    </div>
+    <div class="action-buttons">
+        <button class="submit" type="submit">Wykonaj</button>
+        <button class="reset" type="reset">Wyczyść</button>
+    </div>
+    
 </form>
 </main>
 </body>
