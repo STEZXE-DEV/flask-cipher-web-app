@@ -4,8 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}} - Strona o szyfrowaniu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>TEST</h1>
+    <main>
+    <form method="POST" action="/process">
+
+    <textarea name="text"></textarea required>
+
+    <select name="cipher" required>
+        <option value="transposition">Transposition</option>
+        <option value="polibius">Polibiusz</option>
+        <option value="vigenere">Vigenère</option>
+    </select>
+
+    <input type="text" name="key" required>
+
+    <label>
+        <input type="radio" name="mode" value="encrypt" checked>
+        Szyfruj
+    </label>
+
+    <label>
+        <input type="radio" name="mode" value="decrypt">
+        Deszyfruj
+    </label>
+    <button class="submit" type="submit">Wykonaj</button>
+    <button class="reset" type="reset">Wyczyść</button>
+</form>
+</main>
 </body>
 </html>
