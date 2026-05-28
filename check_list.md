@@ -41,19 +41,19 @@
 - [x] Przyciski szyfruj/deszyfruj
 
 ### 2.4 Połączenie z algorytmami
-- [ ] Integracja szyfrów z formularzem
-- [ ] Wyświetlanie wyników
-- [ ] Walidacja danych
-- [ ] Testy walidacji
+- [x] Integracja szyfrów z formularzem
+- [x] Wyświetlanie wyników
+- [x] Walidacja danych
+- [x] Testy walidacji
 
 ---
 
 ## 3. Obsługa plików i interfejs
 
 ### 3.1 Interfejs
-- [ ] CSS
-- [ ] poprawa wyglądu formularzy
-- [ ] testowanie aplikacji
+- [x] CSS
+- [x] poprawa wyglądu formularzy
+- [x] testowanie aplikacji
 
 ### 3.2 Pliki .txt
 - [ ] upload plików .txt
