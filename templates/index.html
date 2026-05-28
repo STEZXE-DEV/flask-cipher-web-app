@@ -3,39 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}} - Strona o szyfrowaniu</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <main>
-    <form method="POST" action="/process">
+    <title>{{ title }} - Strona o szyfrowaniu</title>
 
-    <textarea name="text" required></textarea>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<main>
+
+<form method="POST" action="/process">
+
+    <!-- TEXT -->
+
+    <textarea
+        name="text"
+        placeholder="Wpisz tekst..."
+        required
+    ></textarea>
+
+
+    <!-- WYBÓR SZYFRU -->
 
     <select name="cipher" required>
-        <option value="transposition">Transposition</option>
-        <option value="polibius">Polibiusz</option>
-        <option value="vigenere">Vigenère</option>
+
+        <option value="transposition">
+            Transposition
+        </option>
+
+        <option value="polibius">
+            Polibiusz
+        </option>
+
+        <option value="vigenere">
+            Vigenère
+        </option>
+
     </select>
 
-    <input type="text" name="key" required>
-    <div class="mode-selection">
-    <label>
-        <input type="radio" name="mode" value="encrypt" checked>
-        Szyfruj
-    </label>
 
-    <label>
-        <input type="radio" name="mode" value="decrypt">
-        Deszyfruj
-    </label>
+    <!-- KLUCZ -->
+
+    <input
+        type="text"
+        name="key"
+        placeholder="Podaj klucz"
+        required
+    >
+
+
+    <!-- TRYB -->
+
+    <div class="mode-selection">
+
+        <label>
+            <input
+                type="radio"
+                name="mode"
+                value="encrypt"
+                checked
+            >
+            Szyfruj
+        </label>
+
+        <label>
+            <input
+                type="radio"
+                name="mode"
+                value="decrypt"
+            >
+            Deszyfruj
+        </label>
+
     </div>
+
+
+    <!-- BUTTONY -->
+
     <div class="action-buttons">
-        <button class="submit" type="submit">Wykonaj</button>
-        <button class="reset" type="reset">Wyczyść</button>
+
+        <button
+            class="submit"
+            type="submit"
+        >
+            Wykonaj
+        </button>
+
+        <button
+            class="reset"
+            type="reset"
+        >
+            Wyczyść
+        </button>
+
     </div>
-    
+
 </form>
+
+
+<!-- WYNIK -->
+
+{% if result %}
+
+<div class="result-box">
+
+    <h2>Wynik:</h2>
+
+    <p>{{ result }}</p>
+
+</div>
+
+{% endif %}
+
+
+<!-- BŁĘDY -->
+
+{% if error %}
+
+<div class="error-box">
+
+    <h2>Błąd:</h2>
+
+    <p>{{ error }}</p>
+
+</div>
+
+{% endif %}
+
 </main>
+
 </body>
 </html>
