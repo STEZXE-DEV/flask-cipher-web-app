@@ -13,14 +13,13 @@
 
 <main>
 
-<form method="POST" action="/process">
+<form method="POST" action="/process" enctype="multipart/form-data">
 
     <!-- TEXT -->
 
     <textarea
         name="text"
         placeholder="Wpisz tekst..."
-        required
     ></textarea>
 
 
@@ -51,6 +50,10 @@
         placeholder="Podaj klucz"
         required
     >
+
+    <!-- PRZESŁANIE PLIKU -->
+
+    <input type="file" name="file" accept=".txt">
 
 
     <!-- TRYB -->

@@ -19,6 +19,10 @@ def process():
     cipher = request.form.get("cipher")
     key = request.form.get("key", "").strip()
     mode = request.form.get("mode")
+    file = request.files.get("file")
+    
+    if file and file.filename:
+        text = file.read().decode("utf-8")
 
     result = ""
     error = ""
