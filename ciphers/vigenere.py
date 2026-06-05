@@ -4,16 +4,17 @@ from .utility.util import normalize, cesar_encrypt, cesar_decrypt
 
 alphabet = "abcdefghijklmnopqrstuvwxyz0123456789"
 
+
 def encrypt(message, key):
-    message =  normalize(message.lower().replace(" ", ""))
+    message = normalize(message.lower().replace(" ", ""))
 
     key = normalize(key.lower().replace(" ", ""))
-    key_string = ''
+    key_string = ""
 
     for idx in range(len(message)):
         key_string += key[idx % len(key)]
 
-    encrypted_message = ''
+    encrypted_message = ""
 
     for idx, letter in enumerate(message):
         if key_string[idx] in alphabet:
@@ -21,15 +22,16 @@ def encrypt(message, key):
 
     return encrypted_message
 
+
 def decrypt(message, key):
-    message =  normalize(message.lower().replace(" ", ""))
+    message = normalize(message.lower().replace(" ", ""))
     key = normalize(key.lower().replace(" ", ""))
-    key_string = ''
+    key_string = ""
 
     for idx in range(len(message)):
         key_string += key[idx % len(key)]
 
-    decrypted_message = ''
+    decrypted_message = ""
 
     for idx, letter in enumerate(message):
         if key_string[idx] in alphabet:

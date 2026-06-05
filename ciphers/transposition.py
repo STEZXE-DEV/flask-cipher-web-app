@@ -2,14 +2,15 @@ import math as m
 from .utility.util import normalize
 
 # Kod odpowiadający za logikę szyfrowania i deszyfrowania metodą przestawieniową - skokową
-# Funkcja szyfrowania
 # klucz jest ilością kolumn, wedle której następuje podział wiadomości
+
+# Funkcja szyfrowania
 def encrypt(message, key):
 
     message = normalize(message.lower().replace(" ", ""))
     message_length = len(message)
     matrix_rows = m.ceil(message_length / key)
-    message_matrix = [['' for _ in range(key)] for _ in range(matrix_rows)]
+    message_matrix = [["" for _ in range(key)] for _ in range(matrix_rows)]
     message_letter_index = 0
 
     for i in range(matrix_rows):
@@ -18,8 +19,7 @@ def encrypt(message, key):
                 message_matrix[i][j] = message[message_letter_index]
                 message_letter_index += 1
 
-
-    encrypted_message = ''
+    encrypted_message = ""
 
     for j in range(key):
         for i in range(matrix_rows):
@@ -27,15 +27,16 @@ def encrypt(message, key):
 
     return encrypted_message
 
-# Funkcja deszyfrowania     
+
+# Funkcja deszyfrowania
 def decrypt(message, key):
 
     message = normalize(message.lower().replace(" ", ""))
     message_length = len(message)
     matrix_rows = m.ceil(message_length / key)
-    message_matrix = [['' for _ in range(key)] for _ in range(matrix_rows)]
+    message_matrix = [["" for _ in range(key)] for _ in range(matrix_rows)]
     message_letter_index = 0
-    decrypted_message = ''
+    decrypted_message = ""
 
     for j in range(key):
         for i in range(matrix_rows):
@@ -46,5 +47,5 @@ def decrypt(message, key):
     for i in range(matrix_rows):
         for j in range(key):
             decrypted_message += message_matrix[i][j]
-                
+
     return decrypted_message
