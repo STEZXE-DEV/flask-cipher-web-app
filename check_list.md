@@ -67,6 +67,6 @@
 - [x] README.md
 - [x] opis zastosowanych algorytmów
 - [x] instrukcja uruchamiania projektu
-- [ ] komentarze do kodu
+- [x] komentarze do kodu
 - [x] końcowe testy aplikacji
-- [ ] przygotowanie projektu do oddania
+- [x] przygotowanie projektu do oddania

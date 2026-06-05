@@ -16,17 +16,10 @@ flask-cipher-web-app/
 │
 ├── static/
 │   ├── style.css
-│   └── script.js
 │
 ├── tests/
 │   ├── __init__.py
 │   └── test_ciphers.py
-│
-├── uploads/
-│
-├── outputs/
-│
-├── requirements.txt
 │
 ├── check_list.md
 │

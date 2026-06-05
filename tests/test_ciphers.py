@@ -3,7 +3,7 @@ import os
 import random as r
 
 # Umożliwia import modułów z folderu głównego projektu
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from ciphers.transposition import encrypt as t_encrypt, decrypt as t_decrypt
 from ciphers.polibius import encrypt as p_encrypt, decrypt as p_decrypt
@@ -11,40 +11,31 @@ from ciphers.vigenere import encrypt as v_encrypt, decrypt as v_decrypt
 
 print("\n=== SIMPLE RANDOM TESTS ===")
 
-base_alphabet = (
-    "abcdefghijklmnopqrstuvwxyz"
-    "ąćęłńóśźż"
-    "0123456789"
-)
+base_alphabet = "abcdefghijklmnopqrstuvwxyz" "ąćęłńóśźż" "0123456789"
 
+# dodatkowe znaki
 extra_chars = (
-    " "          # space
-    "\t"         # tab
-    "\n"         # newline
+    " "  # space
+    "\t"  # tab
+    "\n"  # newline
     ".,!?-_"
 )
 
 # specjalne znaki
-special_chars = (
-    "()[]{}"
-    "@#$%^&*"
-    "+=/\\|"
-    "'\""
-)
+special_chars = "()[]{}" "@#$%^&*" "+=/\\|" "'\""
 
 alphabet = base_alphabet + extra_chars + special_chars
 
 # licznik błędów
-error_count = 0 # ogólny
-t_err = 0 # dla transpozycji
-p_err = 0 # dla polibiusza
-v_err = 0 # dla vigenere
+error_count = 0  # ogólny
+t_err = 0  # dla transpozycji
+p_err = 0  # dla polibiusza
+v_err = 0  # dla vigenere
 
 # licznik testów
-t_total = 0 # transpozycji
-p_total = 0 # polibiusza
-v_total = 0 # vigenere
-
+t_total = 0  # transpozycji
+p_total = 0  # polibiusza
+v_total = 0  # vigenere
 
 
 for _ in range(50):
@@ -59,33 +50,31 @@ for _ in range(50):
     # losowe klucze
     key_t = r.randint(10, 15)
     key_p = r.randint(1, 7)
-    key_v = r.choice([
-    "key",
-    "abc",
-    "klucz",
-    "żaba",
-    "VERYLONGKEYYYYY",
-
-    # krótkie
-    "a",
-    "aa",
-    "xyz",
-
-    # polskie
-    "ąćę",
-    "gęś",
-    "król",
-    "żółć",
-
-    # mieszane case
-    "Key",
-    "KlUcZ",
-    "VeRyLoNgKeY",
-
-    # cyfry w kluczu 
-    "key123",
-    "abc2026",
-])
+    key_v = r.choice(
+        [
+            "key",
+            "abc",
+            "klucz",
+            "żaba",
+            "VERYLONGKEYYYYY",
+            # krótkie
+            "a",
+            "aa",
+            "xyz",
+            # polskie
+            "ąćę",
+            "gęś",
+            "król",
+            "żółć",
+            # mieszane case
+            "Key",
+            "KlUcZ",
+            "VeRyLoNgKeY",
+            # cyfry w kluczu
+            "key123",
+            "abc2026",
+        ]
+    )
 
     try:
         # TRANSPOSITION
@@ -120,7 +109,7 @@ for _ in range(50):
         print("TEXT:", text)
         print(e)
 
-total_tests = t_total + p_total + v_total 
+total_tests = t_total + p_total + v_total
 
 print("\n=========================")
 print("       TEST SUMMARY")

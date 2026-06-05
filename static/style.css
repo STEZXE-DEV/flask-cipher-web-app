@@ -1,5 +1,4 @@
 /* RESET */
-
 * {
     margin: 0;
     padding: 0;
@@ -7,23 +6,17 @@
     text-decoration: none;
 }
 
-
 /* BODY */
-
 body {
     min-height: 100vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     background-color: #111;
     font-family: Arial, sans-serif;
 }
 
-
 /* MAIN */
-
 main {
     width: 100%;
     display: flex;
@@ -31,115 +24,75 @@ main {
     align-items: center;
 }
 
-
 /* FORM */
-
 form {
-
     width: 350px;
-
     display: flex;
     flex-direction: column;
     gap: 10px;
-
     background-color: #444;
-
     padding: 20px;
-
     border-radius: 10px;
 }
 
-
 /* INPUTS */
-
 form input,
 form textarea,
 form select,
 form button {
-
     padding: 8px;
     border: none;
     border-radius: 5px;
 }
 
-
 /* TEXTAREA */
-
 textarea {
     resize: vertical;
     min-height: 120px;
 }
 
-
-/* RADIO */
-
+/* MODE */
 .mode-selection {
     display: flex;
     gap: 20px;
 }
-
 
 .mode-selection label {
     flex: 1;
     text-align: center;
 }
 
-
 /* BUTTONS */
-
 .action-buttons {
     display: flex;
     gap: 10px;
 }
-
 
 .action-buttons button {
     flex: 1;
     cursor: pointer;
 }
 
-
-/* RESULT */
+/* RESULT / ERROR */
+.result-box,
+.error-box {
+    width: 350px;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    word-break: break-word;
+    color: white;
+}
 
 .result-box {
-
-    width: 350px;
-
-    margin-top: 20px;
-
     background-color: #2e7d32;
-
-    color: white;
-
-    padding: 15px;
-
-    border-radius: 10px;
-
-    word-break: break-word;
 }
-
-
-/* ERROR */
 
 .error-box {
-
-    width: 350px;
-
-    margin-top: 20px;
-
     background-color: #c62828;
-
-    color: white;
-
-    padding: 15px;
-
-    border-radius: 10px;
-
-    word-break: break-word;
 }
 
-/* Upload pliku */
-
+/* FILE INPUT */
 input[type="file"] {
     padding: 8px;
     background-color: white;
@@ -147,24 +100,17 @@ input[type="file"] {
     cursor: pointer;
 }
 
-/* Download */
-
+/* DOWNLOAD */
 .download {
     display: block;
-
     text-align: center;
-    text-decoration: none;
-
     padding: 8px;
-
     background-color: #2e7d32;
     color: white;
-
     border-radius: 5px;
-
     transition: 0.2s;
 }
 
-.download-btn:hover {
+.download:hover {
     background-color: #256428;
 }

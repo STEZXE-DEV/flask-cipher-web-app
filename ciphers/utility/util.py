@@ -1,18 +1,26 @@
+# =========================
+# FUNKCJE POMOCNICZE
+# =========================
 
-# Funkcja służąca do normalizacji (podmiany) polskich znaków diakrytycznych
+
+# Funkcja do zamiany polskich znaków na podstawowe litery
 def normalize(text):
+
     polish_dict = {
-    'ą': 'a',
-    'ć': 'c',
-    'ę': 'e',
-    'ł': 'l',
-    'ń': 'n',
-    'ó': 'o',
-    'ś': 's',
-    'ź': 'z',
-    'ż': 'z'
-}
-    normalized_text = ''
+        "ą": "a",
+        "ć": "c",
+        "ę": "e",
+        "ł": "l",
+        "ń": "n",
+        "ó": "o",
+        "ś": "s",
+        "ź": "z",
+        "ż": "z",
+    }
+
+    normalized_text = ""
+
+    # zamiana znak po znaku
     for i in text:
         if i in polish_dict:
             normalized_text += polish_dict[i]
@@ -21,33 +29,45 @@ def normalize(text):
 
     return normalized_text
 
+
+# ===========================
+# SZYFR CEZARA - SZYFROWANIE
+# ===========================
 def cesar_encrypt(message, key):
 
-    message =  normalize(message.lower().replace(" ", ""))
+    # normalizacja i przygotowanie tekstu
+    message = normalize(message.lower().replace(" ", ""))
 
     key %= 26
     alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-    encrypted_message = ''
+    encrypted_message = ""
 
+    # przesunięcie liter o wartość klucza
     for letter in message:
         if letter in alphabet:
             letter_position = (alphabet.index(letter) + key) % 26
             encrypted_message += alphabet[letter_position]
-    
+
     return encrypted_message
 
+
+# ==============================
+# SZYFR CEZARA - DESZYFROWANIE
+# ==============================
 def cesar_decrypt(message, key):
 
-    message =  normalize(message.lower().replace(" ", ""))
+    # normalizacja i przygotowanie tekstu
+    message = normalize(message.lower().replace(" ", ""))
 
     key %= 26
     alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-    encrypted_message = ''
+    decrypted_message = ""
 
+    # cofanie przesunięcia
     for letter in message:
         letter_position = (alphabet.index(letter) - key) % 26
-        encrypted_message += alphabet[letter_position]
-    
-    return encrypted_message
+        decrypted_message += alphabet[letter_position]
+
+    return decrypted_message

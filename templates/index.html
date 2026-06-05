@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tytuł strony (dynamiczny z Flask) -->
     <title>{{ title }} - Strona o szyfrowaniu</title>
 
+    <!-- Podpięcie CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
@@ -13,48 +16,35 @@
 
     <main>
 
+        <!-- FORMULARZ GŁÓWNY -->
+        <!-- enctype potrzebne do uploadu plików -->
         <form method="POST" action="/process" enctype="multipart/form-data">
 
-            <!-- TEXT -->
-
+            <!-- TEKST DO SZYFROWANIA / DESZYFROWANIA -->
             <textarea name="text" placeholder="Wpisz tekst..."></textarea>
 
-
-            <!-- WYBÓR SZYFRU -->
-
+            <!-- WYBÓR ALGORYTMU SZYFROWANIA -->
             <select name="cipher" required>
-
-                <option value="transposition">
-                    Transposition
-                </option>
-
-                <option value="polibius">
-                    Polibiusz
-                </option>
-
-                <option value="vigenere">
-                    Vigenère
-                </option>
-
+                <option value="transposition">Transposition</option>
+                <option value="polibius">Polibiusz</option>
+                <option value="vigenere">Vigenère</option>
             </select>
 
-
-            <!-- KLUCZ -->
-
+            <!-- KLUCZ DO SZYFROWANIA -->
             <input type="text" name="key" placeholder="Podaj klucz" required>
 
-            <!-- PRZESŁANIE PLIKU -->
-
+            <!-- UPLOAD PLIKU TXT (opcjonalnie zamiast wpisywania tekstu) -->
             <input type="file" name="file" accept=".txt">
 
+            <!-- LINK DO POBRANIA WYNIKU (po przetworzeniu danych) -->
             {% if result %}
             <a class="download" href="/download">
                 Pobierz wynik .txt
             </a>
             {% endif %}
 
-            <!-- TRYB -->
-
+            <!-- WYBÓR TRYBU DZIAŁANIA -->
+            <!-- encrypt = szyfrowanie, decrypt = deszyfrowanie -->
             <div class="mode-selection">
 
                 <label>
@@ -69,9 +59,7 @@
 
             </div>
 
-
-            <!-- BUTTONY -->
-
+            <!-- PRZYCISKI AKCJI FORMULARZA -->
             <div class="action-buttons">
 
                 <button class="submit" type="submit">
@@ -86,34 +74,20 @@
 
         </form>
 
-
-        <!-- WYNIK -->
-
+        <!-- WYŚWIETLANIE WYNIKU -->
         {% if result %}
-
         <div class="result-box">
-
             <h2>Wynik:</h2>
-
             <p>{{ result }}</p>
-
         </div>
-
         {% endif %}
 
-
-        <!-- BŁĘDY -->
-
+        <!-- WYŚWIETLANIE BŁĘDÓW -->
         {% if error %}
-
         <div class="error-box">
-
             <h2>Błąd:</h2>
-
             <p>{{ error }}</p>
-
         </div>
-
         {% endif %}
 
     </main>
