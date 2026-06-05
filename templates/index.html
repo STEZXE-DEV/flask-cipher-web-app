@@ -1,140 +1,123 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} - Strona o szyfrowaniu</title>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<main>
+    <main>
 
-<form method="POST" action="/process" enctype="multipart/form-data">
+        <form method="POST" action="/process" enctype="multipart/form-data">
 
-    <!-- TEXT -->
+            <!-- TEXT -->
 
-    <textarea
-        name="text"
-        placeholder="Wpisz tekst..."
-    ></textarea>
+            <textarea name="text" placeholder="Wpisz tekst..."></textarea>
 
 
-    <!-- WYBÓR SZYFRU -->
+            <!-- WYBÓR SZYFRU -->
 
-    <select name="cipher" required>
+            <select name="cipher" required>
 
-        <option value="transposition">
-            Transposition
-        </option>
+                <option value="transposition">
+                    Transposition
+                </option>
 
-        <option value="polibius">
-            Polibiusz
-        </option>
+                <option value="polibius">
+                    Polibiusz
+                </option>
 
-        <option value="vigenere">
-            Vigenère
-        </option>
+                <option value="vigenere">
+                    Vigenère
+                </option>
 
-    </select>
-
-
-    <!-- KLUCZ -->
-
-    <input
-        type="text"
-        name="key"
-        placeholder="Podaj klucz"
-        required
-    >
-
-    <!-- PRZESŁANIE PLIKU -->
-
-    <input type="file" name="file" accept=".txt">
+            </select>
 
 
-    <!-- TRYB -->
+            <!-- KLUCZ -->
 
-    <div class="mode-selection">
+            <input type="text" name="key" placeholder="Podaj klucz" required>
 
-        <label>
-            <input
-                type="radio"
-                name="mode"
-                value="encrypt"
-                checked
-            >
-            Szyfruj
-        </label>
+            <!-- PRZESŁANIE PLIKU -->
 
-        <label>
-            <input
-                type="radio"
-                name="mode"
-                value="decrypt"
-            >
-            Deszyfruj
-        </label>
+            <input type="file" name="file" accept=".txt">
 
-    </div>
+            {% if result %}
+            <a class="download" href="/download">
+                Pobierz wynik .txt
+            </a>
+            {% endif %}
 
+            <!-- TRYB -->
 
-    <!-- BUTTONY -->
+            <div class="mode-selection">
 
-    <div class="action-buttons">
+                <label>
+                    <input type="radio" name="mode" value="encrypt" checked>
+                    Szyfruj
+                </label>
 
-        <button
-            class="submit"
-            type="submit"
-        >
-            Wykonaj
-        </button>
+                <label>
+                    <input type="radio" name="mode" value="decrypt">
+                    Deszyfruj
+                </label>
 
-        <button
-            class="reset"
-            type="reset"
-        >
-            Wyczyść
-        </button>
-
-    </div>
-
-</form>
+            </div>
 
 
-<!-- WYNIK -->
+            <!-- BUTTONY -->
 
-{% if result %}
+            <div class="action-buttons">
 
-<div class="result-box">
+                <button class="submit" type="submit">
+                    Wykonaj
+                </button>
 
-    <h2>Wynik:</h2>
+                <button class="reset" type="reset">
+                    Wyczyść
+                </button>
 
-    <p>{{ result }}</p>
+            </div>
 
-</div>
-
-{% endif %}
+        </form>
 
 
-<!-- BŁĘDY -->
+        <!-- WYNIK -->
 
-{% if error %}
+        {% if result %}
 
-<div class="error-box">
+        <div class="result-box">
 
-    <h2>Błąd:</h2>
+            <h2>Wynik:</h2>
 
-    <p>{{ error }}</p>
+            <p>{{ result }}</p>
 
-</div>
+        </div>
 
-{% endif %}
+        {% endif %}
 
-</main>
+
+        <!-- BŁĘDY -->
+
+        {% if error %}
+
+        <div class="error-box">
+
+            <h2>Błąd:</h2>
+
+            <p>{{ error }}</p>
+
+        </div>
+
+        {% endif %}
+
+    </main>
 
 </body>
+
 </html>

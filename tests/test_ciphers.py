@@ -57,7 +57,7 @@ for _ in range(50):
     text = "".join(r.choice(alphabet) for _ in range(r.randint(5, 25)))
 
     # losowe klucze
-    key_t = r.randint(1, 15)
+    key_t = r.randint(10, 15)
     key_p = r.randint(1, 7)
     key_v = r.choice([
     "key",

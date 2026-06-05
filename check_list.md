@@ -56,10 +56,10 @@
 - [x] testowanie aplikacji
 
 ### 3.2 Pliki .txt
-- [ ] upload plików .txt
-- [ ] odczyt zawartości plików
-- [ ] szyfrowanie/deszyfrowanie danych z pliku
-- [ ] pobieranie wyników .txt
+- [x] upload plików .txt
+- [x] odczyt zawartości plików
+- [x] szyfrowanie/deszyfrowanie danych z pliku
+- [x] pobieranie wyników .txt
 
 ---
 
