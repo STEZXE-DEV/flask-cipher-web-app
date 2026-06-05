@@ -64,10 +64,9 @@
 ---
 
 ## 4. Dokumentacja i finalizacja
-- [ ] README.md
-- [ ] opis zastosowanych algorytmów
-- [ ] instrukcja uruchamiania projektu
+- [x] README.md
+- [x] opis zastosowanych algorytmów
+- [x] instrukcja uruchamiania projektu
 - [ ] komentarze do kodu
-- [ ] końcowe testy aplikacji
-- [ ] poprawa błędów
+- [x] końcowe testy aplikacji
 - [ ] przygotowanie projektu do oddania
