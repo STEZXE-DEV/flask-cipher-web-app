@@ -32,7 +32,7 @@ def process():
 
     # jeśli użytkownik wrzucił plik, to nadpisujemy tekst
     if file and file.filename:
-        text = file.read().decode("utf-8")
+        text = file.read().decode("utf-8").replace("\r", "")
 
     result = ""
     error = ""

@@ -32,7 +32,7 @@ def encrypt(message, key):
     # wypełnianie macierzy wierszami
     for i in range(matrix_rows):
         for j in range(key):
-            if message_letter_index < message_length:
+            if i * key + j < message_length:
                 message_matrix[i][j] = message[message_letter_index]
                 message_letter_index += 1
 
@@ -41,7 +41,8 @@ def encrypt(message, key):
     # odczyt kolumnami (kluczowy element szyfru)
     for j in range(key):
         for i in range(matrix_rows):
-            encrypted_message += message_matrix[i][j]
+            if i * key + j < message_length:
+                encrypted_message += message_matrix[i][j]
 
     return encrypted_message
 
@@ -63,18 +64,20 @@ def decrypt(message, key):
     message_matrix = [["" for _ in range(key)] for _ in range(matrix_rows)]
 
     message_letter_index = 0
-    decrypted_message = ""
 
     # wypełnianie macierzy kolumnami (odwrotność encrypt)
     for j in range(key):
         for i in range(matrix_rows):
-            if message_letter_index < message_length:
+            if i * key + j < message_length:
                 message_matrix[i][j] = message[message_letter_index]
                 message_letter_index += 1
+
+    decrypted_message = ""
 
     # odczyt wierszami
     for i in range(matrix_rows):
         for j in range(key):
-            decrypted_message += message_matrix[i][j]
+            if i * key + j < message_length:
+                decrypted_message += message_matrix[i][j]
 
     return decrypted_message
